@@ -7,6 +7,7 @@ import com.ctre.phoenix.sensors.CANCoder;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
+import edu.wpi.first.wpilibj.PIDSource;
 
 public class WheelDrive {
     private TalonFX angleMotor;
@@ -18,7 +19,7 @@ public class WheelDrive {
     public WheelDrive(int angleMotor, int speedMotor, int encoder) {
         this.angleMotor = new TalonFX(angleMotor);
         this.speedMotor = new TalonFX(speedMotor);
-        this.pidController = new PIDController(1, 0, 0, new AnalogInput(encoder), (PIDOutput) this.angleMotor);    
+        this.pidController = new PIDController(1, 0, 0, (PIDSource) new CANCoder(encoder), (PIDOutput) this.angleMotor);
         
         pidController.setOutputRange(-1, 1);
         pidController.setContinuous();

@@ -29,6 +29,8 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
+  //double check that everything if the IDs are good with the phoenix tuner
+  //first value: angleMotor ID, second value: speedMotor ID, third value: encoder ID
   private WheelDrive backRight = new WheelDrive(6, 7, 2);
   private WheelDrive backLeft = new WheelDrive(0,1,1);
   private  WheelDrive frontRight = new WheelDrive(2,3,3);
